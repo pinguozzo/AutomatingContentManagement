@@ -10,3 +10,10 @@
   loop_control:
     loop_var: cv
   when: content_views is defined
+
+- name: "Process the list of composite content views"
+  include_tasks: create_ccv.yml
+  loop: "{{ composite_content_views }}"
+  loop_control:
+    loop_var: ccv
+  when: composite_content_views is defined

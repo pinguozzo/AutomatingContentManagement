@@ -1,0 +1,21 @@
+---
+# This task creates the defined content view from the structure in all.yml
+# Then iterates over the list of filters when defined
+#
+  - name: "Create the composite content view - {{ ccv.name }}"
+    redhat.satellite.content_view:
+
+  - name: "Create a composite content view"
+    redhat.satellite.content_view:
+      validate_certs: "{{ sat_validate_certs }}"
+      username: "{{ sat_publisher_username }}"
+      password: "{{ sat_publisher_password }}"
+      server_url: "{{ sat_server_url }}"
+      organization: "{{ sat_organization }}"
+      description: "{{ ccv.desc }}"
+      name: "{{ ccv.name }}"
+      composite: true
+      auto_publish: false
+      components:
+        - content_view: "{{ ccv.components }}"
+          content_view_version: latest
