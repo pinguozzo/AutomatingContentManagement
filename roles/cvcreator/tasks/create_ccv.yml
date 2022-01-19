@@ -4,9 +4,6 @@
 #
   - name: "Create the composite content view - {{ ccv.name }}"
     redhat.satellite.content_view:
-
-  - name: "Create a composite content view"
-    redhat.satellite.content_view:
       validate_certs: "{{ sat_validate_certs }}"
       username: "{{ sat_publisher_username }}"
       password: "{{ sat_publisher_password }}"
